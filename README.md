@@ -43,7 +43,15 @@ This project implements a comprehensive deep learning solution to predict electr
 - Provides **uncertainty estimation** through prediction variance  
 
 ---
+## 📊 Model Architecture Comparison
 
+| File | Architecture | Regularization | Loss Function | Special Features |
+|------|--------------|----------------|---------------|-----------------|
+| `getCmoy_DL_first.py` | Basic MLP (512→256→128→64→32→1) | None | MSE | Standard scaling |
+| `getCmoy_DL_second.py` | MLP with BN & Dropout | Dropout 0.1-0.3, BatchNorm | MSE | Early stopping, LR scheduling |
+| `getCmoy_DL_fourth.py` | Deep NN with LeakyReLU | Dropout | MSE | Polynomial features |
+| `getCmoy_DL_fifth.py` | Ensemble of 5 models | Dropout, BatchNorm | MSE | Model averaging |
+| `getCmoy_DL_sixth.py` | Residual MLP | LayerNorm | Combined (MSE+MAE) | Uncertainty estimation |
 ## 🔄 Integration Evolution
 
 ```mermaid
